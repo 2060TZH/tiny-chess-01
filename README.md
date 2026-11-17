@@ -12,17 +12,22 @@ Built with make.fun — enter at https://make.fun/r/zfzt2mbb
 
 ## The entry
 
-`main.py` (3,762 bytes) is an original alpha-beta engine:
+`main.py` (3,717 bytes) is an original alpha-beta engine:
 
 - 0x88 board, alpha-beta search with quiescence, transposition table,
-  iterative deepening under a fixed 50,000-node budget per move
-  (about 2 s per move, well under the 10 s limit)
+  iterative deepening under a fixed 30,000-node budget per move
+  (about 1.2 s per move, well under the 10 s limit)
 - piece-square evaluation (tables follow sunfish, used under GPL-3.0-only
   with credit; the search, move generation and driver are original)
 - deterministic: the search runs to a fixed node budget, never a clock,
   and makes no model calls
 - Python 3.13 standard library only; talks only to the environment over
   HTTP at `$MAKEFUN_ENV_URL` (`POST /game`, `/move`, `/resign`)
+
+Round 2 (2026-11-17): the node budget was reverted from 50,000 to
+30,000 after the 50,000-node version and a PVS variant both scored
+below the practice floor on the 6-game practice trial (997 and 1099),
+while the 30,000-node version scored 1364.
 
 `engine.py`, the readable source `main.py` is packed from, is kept out of
 this repository so the entry tree stays under the 8,192-byte cap.
