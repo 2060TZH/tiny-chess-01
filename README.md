@@ -12,10 +12,11 @@ Built with make.fun — enter at https://make.fun/r/zfzt2mbb
 
 ## The entry
 
-`main.py` (3,717 bytes) is an original alpha-beta engine:
+`main.py` (3,762 bytes) is an original alpha-beta engine:
 
 - 0x88 board, alpha-beta search with quiescence, transposition table,
-  iterative deepening under a fixed 30,000-node budget per move
+  iterative deepening under a fixed 50,000-node budget per move
+  (about 2 s per move, well under the 10 s limit)
 - piece-square evaluation (tables follow sunfish, used under GPL-3.0-only
   with credit; the search, move generation and driver are original)
 - deterministic: the search runs to a fixed node budget, never a clock,
